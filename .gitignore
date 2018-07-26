@@ -1,0 +1,32 @@
+# project
+#
+todo
+db.sqlite3
+local.py
+dump.rdb
+celerybeat-schedule*
+celerybeat-schedule.db
+celerybeat.pid
+upload
+
+# virtual env
+venv
+
+# IDE
+.idea
+
+# OSX
+.DS_Store
+*DS_Store
+sftp-config.json
+
+
+# Thumbnails
+._*
+
+# python
+#
+*.pyc
+*.pyo
+
+
