@@ -22,5 +22,5 @@ from django.conf import settings
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    url(r'^myblog/', include('myblog.urls', namespace="myblog")),
+    url(r'^', include('myblog.urls', namespace="myblog")),
 ]
