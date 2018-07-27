@@ -40,21 +40,11 @@
         <span id="nav_b" class="light_span">导航菜单</span>
 
         <ul class="header_pic_menu">
-            <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home"
-                id="menu-item-37"><a
-                    href="http://www.themepark.com.cn/demo/?themedemo=foldingtime"><span><b>首页</b></span></a></li>
-            <li class="menu-item menu-item-type-taxonomy menu-item-object-category" id="menu-item-41"><a
-                    href="http://www.themepark.com.cn/demo/about-us?themedemo=foldingtime"><span><b>关于我的</b></span></a>
-            </li>
-            <li class="menu-item menu-item-type-taxonomy menu-item-object-category" id="menu-item-38"><a
-                    href="http://www.themepark.com.cn/demo/category/company-news?themedemo=foldingtime"><span><b>美食分享</b></span></a>
-            </li>
-            <li class="menu-item menu-item-type-taxonomy menu-item-object-category" id="menu-item-39"><a
-                    href="http://www.themepark.com.cn/demo/category/company-news?themedemo=foldingtime"><span><b>工作笔记</b></span></a>
-            </li>
-            <li class="menu-item menu-item-type-taxonomy menu-item-object-category" id="menu-item-40"><a
-                    href="http://www.themepark.com.cn/demo/category/company-news?themedemo=foldingtime"><span><b>旅途见闻</b></span></a>
-            </li>
+            <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home" id="menu-item-37"><a href="/"><span><b>首页</b></span></a></li>
+            <li class="menu-item menu-item-type-taxonomy menu-item-object-category" id="menu-item-41"><a href="/"><span><b>关于我的</b></span></a> </li>
+            <li class="menu-item menu-item-type-taxonomy menu-item-object-category" id="menu-item-38"><a href="/"><span><b>美食分享</b></span></a> </li>
+            <li class="menu-item menu-item-type-taxonomy menu-item-object-category" id="menu-item-39"><a href="/"><span><b>工作笔记</b></span></a> </li>
+            <li class="menu-item menu-item-type-taxonomy menu-item-object-category" id="menu-item-40"><a href="/"><span><b>旅途见闻</b></span></a> </li>
         </ul>
 
 
@@ -68,572 +58,36 @@
 
         <ul class="main_loop_ul">
 
-
+            {% for blog_content in blog_contents %}
             <li class="mian_li">
                 <div class="ajax_content">
-                    <a class="main_title" target="_blank"
-                       href="https://www.themepark.com.cn/demo/wen_da_she_qu_yan_shi_wen_zhang.html">
-                        去过济州岛，才明白什么叫“天然鲜”</a>
-
+                    <a class="main_title" target="_blank" href="{% url 'myblog:myblog_detail' blog_content.pk %}"> {{ blog_content.title }}</a>
                     <div class="main_others">
-                        <a class="main_cat" href="https://www.themepark.com.cn/demo/category/bbs" class="main_cat">旅途见闻
-                            / food</a>
-
-                        <a class="main_actor" target="_blank" href="https://www.themepark.com.cn/demo/author/jasson">MR.Jack</a>
-                        写在2015年03月30日
+                        <a class="main_cat" href="#" class="main_cat">{{ blog_content.sort.name }}</a>
+                        <a class="main_actor" target="_blank" href="#">forever</a> 写在{{ blog_content.create_time|date:"Y-m-d H:i:s" }}
                     </div>
                     <div class="main_fenge"></div>
                     <div class="main_excerp"><p class="index_p_d">
-                        听到我要去济州岛，对方的反应大多是“济州岛有什么好玩的。”虽说不看韩剧也不哈韩流，更不买韩妆，可谁让人家好吃关键还免签证，齐备了一场说吃就吃的旅行两大关键元素。然而这么胸有成竹的样子都是装出来的。两年前去首尔的时候觉得韩国吃食简直乏善可陈，满大街捧着咖啡杯艳丽冻人的美少女，然而咖啡和甜品都不够美味，被日本甩出不知道多少条街。传统韩国菜又太不适合一个人吃，曾在首尔明洞要了一份参鸡汤，上来整只乌骨...</p>
+                        {{ blog_content.content }}
+                    </p>
                     </div>
-                    <a class="readmore"
-                       rel="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/enter.html"><span>展开全部</span>read
-                        more</a>
-                    <div class="readloading"></div>
+                    <a class="readmore" href="{% url 'myblog:myblog_detail' blog_content.pk %}"><span>展开全部</span>read more</a>
+                    <!-- <div class="readloading"></div> -->
                     <div class="main_photos">
-
-                        <img src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/main1.jpg"/>
-
-
+                        <img src="{% static 'images/main1.jpg' %}"/>
                     </div>
 
                     <div class="moretag">
-
                         <span class="main_tag"></span>
                     </div>
                 </div>
 
             </li>
-
-
-            <li class="mian_li">
-                <div class="ajax_content">
-                    <a class="main_title" target="_blank"
-                       href="https://www.themepark.com.cn/demo/wen_da_she_qu_yan_shi_wen_zhang.html"> 静读丨阿尔托的温软力量</a>
-
-                    <div class="main_others">
-                        <a class="main_cat" href="https://www.themepark.com.cn/demo/category/bbs" class="main_cat">旅途见闻
-                            / food</a>
-
-                        <a class="main_actor" target="_blank" href="https://www.themepark.com.cn/demo/author/jasson">MR.Jack</a>
-                        写在2015年03月30日
-                    </div>
-                    <div class="main_fenge"></div>
-                    <div class="main_excerp"><p class="index_p_d">
-                        在东南大学建筑学院副教授史永高的理解中，阿尔托的建筑是温软的，但并非甜腻。它们不断地否定自己来承纳时间，在这承纳中，自有一种因隐忍而来的力量。温软，终究是源于对生活的关顾，便也因而脆弱，远离永恒。那些温软的背后，是平常的生活，是始终相依的万物，是一个人对世界的爱。</p>
-                    </div>
-                    <a class="readmore"
-                       rel="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/enter.html"><span>展开全部</span>read
-                        more</a>
-                    <div class="readloading"></div>
-                    <div class="main_photos">
-
-
-                        <div id="gallerys" data-pswp-uid="1">
-                            <a title="1111111111" data-author="by.MR.Jack" data-size="832x554" data-med-size="832x554"
-                               data-med="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k1.jpg"
-                               href="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k1.jpg">
-
-                                <img width="150" height="150" alt="1111111111"
-                                     class="attachment-gallery_lightbox size-gallery_lightbox"
-                                     src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k11.jpg">
-                                <figure>大峡谷美景如画，山峰清凉，空气清新</figure>
-
-                            </a>
-
-                            <a title="1111111111" data-author="by.MR.Jack" data-size="832x554" data-med-size="832x554"
-                               data-med="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k2.jpg"
-                               href="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k2.jpg">
-                                <img width="150" height="150" alt="1111111111"
-                                     class="attachment-gallery_lightbox size-gallery_lightbox"
-                                     src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k22.jpg">
-                                <figure>大峡谷美景如画，山峰清凉，空气清新</figure>
-                            </a>
-                            <a title="1111111111" data-author="by.MR.Jack" data-size="480x602" data-med-size="480x602"
-                               data-med="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k33.jpg"
-                               href="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k33.jpg">
-                                <img width="150" height="150" alt="1111111111"
-                                     class="attachment-gallery_lightbox size-gallery_lightbox"
-                                     src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k3.jpg">
-                                <figure>大峡谷美景如画，山峰清凉，空气清新</figure>
-                            </a><a title="1111111111" data-author="by.MR.Jack" data-size="903x582"
-                                   data-med-size="903x582"
-                                   data-med="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k44.jpg"
-                                   href="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k44.jpg">
-                            <img width="150" height="150" alt="1111111111"
-                                 class="attachment-gallery_lightbox size-gallery_lightbox"
-                                 src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k4.jpg">
-                            <figure>大峡谷美景如画，山峰清凉，空气清新</figure>
-                        </a>
-                            <a title="1111111111" data-author="by.MR.Jack" data-size="903x582" data-med-size="903x582"
-                               data-med="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k55.jpg"
-                               href="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k55.jpg">
-                                <img width="150" height="150" alt="1111111111"
-                                     class="attachment-gallery_lightbox size-gallery_lightbox"
-                                     src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k5.jpg">
-                                <figure>大峡谷美景如画，山峰清凉，空气清新</figure>
-                            </a>
-                            <a title="1111111111" data-author="by.MR.Jack" data-size="903x582" data-med-size="903x582"
-                               data-med="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k66.jpg"
-                               href="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k66.jpg">
-                                <img width="150" height="150" alt="1111111111"
-                                     class="attachment-gallery_lightbox size-gallery_lightbox"
-                                     src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k6.jpg">
-                                <figure>大峡谷美景如画，山峰清凉，空气清新</figure>
-                            </a>
-                            <a title="1111111111" data-author="by.MR.Jack" data-size="903x582" data-med-size="903x582"
-                               data-med="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k77.jpg"
-                               href="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k77.jpg">
-                                <img width="150" height="150" alt="1111111111"
-                                     class="attachment-gallery_lightbox size-gallery_lightbox"
-                                     src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k7.jpg">
-                                <figure>大峡谷美景如画，山峰清凉，空气清新</figure>
-                            </a>
-                            <a title="1111111111" data-author="by.MR.Jack" data-size="903x582" data-med-size="903x582"
-                               data-med="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k88.jpg"
-                               href="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k88.jpg">
-                                <img width="150" height="150" alt="1111111111"
-                                     class="attachment-gallery_lightbox size-gallery_lightbox"
-                                     src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k8.jpg">
-                                <figure>大峡谷美景如画，山峰清凉，空气清新</figure>
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                    <div class="moretag">
-
-                        <span class="main_tag"></span>
-                    </div>
-                </div>
-
-            </li>
-
-            <li class="mian_li">
-                <div class="ajax_content">
-                    <a class="main_title" target="_blank"
-                       href="https://www.themepark.com.cn/demo/wen_da_she_qu_yan_shi_wen_zhang.html">
-                        去过济州岛，才明白什么叫“天然鲜”</a>
-
-                    <div class="main_others">
-                        <a class="main_cat" href="https://www.themepark.com.cn/demo/category/bbs" class="main_cat">旅途见闻
-                            / food</a>
-
-                        <a class="main_actor" target="_blank" href="https://www.themepark.com.cn/demo/author/jasson">MR.Jack</a>
-                        写在2015年03月30日
-                    </div>
-                    <div class="main_fenge"></div>
-                    <div class="main_excerp"><p class="index_p_d">
-                        听到我要去济州岛，对方的反应大多是“济州岛有什么好玩的。”虽说不看韩剧也不哈韩流，更不买韩妆，可谁让人家好吃关键还免签证，齐备了一场说吃就吃的旅行两大关键元素。然而这么胸有成竹的样子都是装出来的。两年前去首尔的时候觉得韩国吃食简直乏善可陈，满大街捧着咖啡杯艳丽冻人的美少女，然而咖啡和甜品都不够美味，被日本甩出不知道多少条街。传统韩国菜又太不适合一个人吃，曾在首尔明洞要了一份参鸡汤，上来整只乌骨...</p>
-                    </div>
-                    <a class="readmore"
-                       rel="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/enter.html"><span>展开全部</span>read
-                        more</a>
-                    <div class="readloading"></div>
-                    <div class="main_photos">
-
-                        <img src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/main1.jpg"/>
-
-
-                    </div>
-
-                    <div class="moretag">
-
-                        <span class="main_tag"></span>
-                    </div>
-                </div>
-
-            </li>
-
-
-            <li class="mian_li">
-                <div class="ajax_content">
-                    <a class="main_title" target="_blank"
-                       href="https://www.themepark.com.cn/demo/wen_da_she_qu_yan_shi_wen_zhang.html"> 静读丨阿尔托的温软力量</a>
-
-                    <div class="main_others">
-                        <a class="main_cat" href="https://www.themepark.com.cn/demo/category/bbs" class="main_cat">旅途见闻
-                            / food</a>
-
-                        <a class="main_actor" target="_blank" href="https://www.themepark.com.cn/demo/author/jasson">MR.Jack</a>
-                        写在2015年03月30日
-                    </div>
-                    <div class="main_fenge"></div>
-                    <div class="main_excerp"><p class="index_p_d">
-                        在东南大学建筑学院副教授史永高的理解中，阿尔托的建筑是温软的，但并非甜腻。它们不断地否定自己来承纳时间，在这承纳中，自有一种因隐忍而来的力量。温软，终究是源于对生活的关顾，便也因而脆弱，远离永恒。那些温软的背后，是平常的生活，是始终相依的万物，是一个人对世界的爱。</p>
-                    </div>
-                    <a class="readmore"
-                       rel="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/enter.html"><span>展开全部</span>read
-                        more</a>
-                    <div class="readloading"></div>
-                    <div class="main_photos">
-
-
-                        <div id="gallerys" data-pswp-uid="1">
-                            <a title="1111111111" data-author="by.MR.Jack" data-size="832x554" data-med-size="832x554"
-                               data-med="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k1.jpg"
-                               href="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k1.jpg">
-
-                                <img width="150" height="150" alt="1111111111"
-                                     class="attachment-gallery_lightbox size-gallery_lightbox"
-                                     src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k11.jpg">
-                                <figure>大峡谷美景如画，山峰清凉，空气清新</figure>
-
-                            </a>
-
-                            <a title="1111111111" data-author="by.MR.Jack" data-size="832x554" data-med-size="832x554"
-                               data-med="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k2.jpg"
-                               href="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k2.jpg">
-                                <img width="150" height="150" alt="1111111111"
-                                     class="attachment-gallery_lightbox size-gallery_lightbox"
-                                     src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k22.jpg">
-                                <figure>大峡谷美景如画，山峰清凉，空气清新</figure>
-                            </a>
-                            <a title="1111111111" data-author="by.MR.Jack" data-size="480x602" data-med-size="480x602"
-                               data-med="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k33.jpg"
-                               href="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k33.jpg">
-                                <img width="150" height="150" alt="1111111111"
-                                     class="attachment-gallery_lightbox size-gallery_lightbox"
-                                     src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k3.jpg">
-                                <figure>大峡谷美景如画，山峰清凉，空气清新</figure>
-                            </a><a title="1111111111" data-author="by.MR.Jack" data-size="903x582"
-                                   data-med-size="903x582"
-                                   data-med="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k44.jpg"
-                                   href="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k44.jpg">
-                            <img width="150" height="150" alt="1111111111"
-                                 class="attachment-gallery_lightbox size-gallery_lightbox"
-                                 src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k4.jpg">
-                            <figure>大峡谷美景如画，山峰清凉，空气清新</figure>
-                        </a>
-                            <a title="1111111111" data-author="by.MR.Jack" data-size="903x582" data-med-size="903x582"
-                               data-med="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k55.jpg"
-                               href="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k55.jpg">
-                                <img width="150" height="150" alt="1111111111"
-                                     class="attachment-gallery_lightbox size-gallery_lightbox"
-                                     src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k5.jpg">
-                                <figure>大峡谷美景如画，山峰清凉，空气清新</figure>
-                            </a>
-                            <a title="1111111111" data-author="by.MR.Jack" data-size="903x582" data-med-size="903x582"
-                               data-med="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k66.jpg"
-                               href="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k66.jpg">
-                                <img width="150" height="150" alt="1111111111"
-                                     class="attachment-gallery_lightbox size-gallery_lightbox"
-                                     src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k6.jpg">
-                                <figure>大峡谷美景如画，山峰清凉，空气清新</figure>
-                            </a>
-                            <a title="1111111111" data-author="by.MR.Jack" data-size="903x582" data-med-size="903x582"
-                               data-med="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k77.jpg"
-                               href="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k77.jpg">
-                                <img width="150" height="150" alt="1111111111"
-                                     class="attachment-gallery_lightbox size-gallery_lightbox"
-                                     src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k7.jpg">
-                                <figure>大峡谷美景如画，山峰清凉，空气清新</figure>
-                            </a>
-                            <a title="1111111111" data-author="by.MR.Jack" data-size="903x582" data-med-size="903x582"
-                               data-med="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k88.jpg"
-                               href="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k88.jpg">
-                                <img width="150" height="150" alt="1111111111"
-                                     class="attachment-gallery_lightbox size-gallery_lightbox"
-                                     src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k8.jpg">
-                                <figure>大峡谷美景如画，山峰清凉，空气清新</figure>
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                    <div class="moretag">
-
-                        <span class="main_tag"></span>
-                    </div>
-                </div>
-
-            </li>
-            <li class="mian_li">
-                <div class="ajax_content">
-                    <a class="main_title" target="_blank"
-                       href="https://www.themepark.com.cn/demo/wen_da_she_qu_yan_shi_wen_zhang.html">
-                        去过济州岛，才明白什么叫“天然鲜”</a>
-
-                    <div class="main_others">
-                        <a class="main_cat" href="https://www.themepark.com.cn/demo/category/bbs" class="main_cat">旅途见闻
-                            / food</a>
-
-                        <a class="main_actor" target="_blank" href="https://www.themepark.com.cn/demo/author/jasson">MR.Jack</a>
-                        写在2015年03月30日
-                    </div>
-                    <div class="main_fenge"></div>
-                    <div class="main_excerp"><p class="index_p_d">
-                        听到我要去济州岛，对方的反应大多是“济州岛有什么好玩的。”虽说不看韩剧也不哈韩流，更不买韩妆，可谁让人家好吃关键还免签证，齐备了一场说吃就吃的旅行两大关键元素。然而这么胸有成竹的样子都是装出来的。两年前去首尔的时候觉得韩国吃食简直乏善可陈，满大街捧着咖啡杯艳丽冻人的美少女，然而咖啡和甜品都不够美味，被日本甩出不知道多少条街。传统韩国菜又太不适合一个人吃，曾在首尔明洞要了一份参鸡汤，上来整只乌骨...</p>
-                    </div>
-                    <a class="readmore"
-                       rel="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/enter.html"><span>展开全部</span>read
-                        more</a>
-                    <div class="readloading"></div>
-                    <div class="main_photos">
-
-                        <img src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/main1.jpg"/>
-
-
-                    </div>
-
-                    <div class="moretag">
-
-                        <span class="main_tag"></span>
-                    </div>
-                </div>
-
-            </li>
-
-
-            <li class="mian_li">
-                <div class="ajax_content">
-                    <a class="main_title" target="_blank"
-                       href="https://www.themepark.com.cn/demo/wen_da_she_qu_yan_shi_wen_zhang.html"> 静读丨阿尔托的温软力量</a>
-
-                    <div class="main_others">
-                        <a class="main_cat" href="https://www.themepark.com.cn/demo/category/bbs" class="main_cat">旅途见闻
-                            / food</a>
-
-                        <a class="main_actor" target="_blank" href="https://www.themepark.com.cn/demo/author/jasson">MR.Jack</a>
-                        写在2015年03月30日
-                    </div>
-                    <div class="main_fenge"></div>
-                    <div class="main_excerp"><p class="index_p_d">
-                        在东南大学建筑学院副教授史永高的理解中，阿尔托的建筑是温软的，但并非甜腻。它们不断地否定自己来承纳时间，在这承纳中，自有一种因隐忍而来的力量。温软，终究是源于对生活的关顾，便也因而脆弱，远离永恒。那些温软的背后，是平常的生活，是始终相依的万物，是一个人对世界的爱。</p>
-                    </div>
-                    <a class="readmore"
-                       rel="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/enter.html"><span>展开全部</span>read
-                        more</a>
-                    <div class="readloading"></div>
-                    <div class="main_photos">
-
-
-                        <div id="gallerys" data-pswp-uid="1">
-                            <a title="1111111111" data-author="by.MR.Jack" data-size="832x554" data-med-size="832x554"
-                               data-med="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k1.jpg"
-                               href="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k1.jpg">
-
-                                <img width="150" height="150" alt="1111111111"
-                                     class="attachment-gallery_lightbox size-gallery_lightbox"
-                                     src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k11.jpg">
-                                <figure>大峡谷美景如画，山峰清凉，空气清新</figure>
-
-                            </a>
-
-                            <a title="1111111111" data-author="by.MR.Jack" data-size="832x554" data-med-size="832x554"
-                               data-med="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k2.jpg"
-                               href="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k2.jpg">
-                                <img width="150" height="150" alt="1111111111"
-                                     class="attachment-gallery_lightbox size-gallery_lightbox"
-                                     src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k22.jpg">
-                                <figure>大峡谷美景如画，山峰清凉，空气清新</figure>
-                            </a>
-                            <a title="1111111111" data-author="by.MR.Jack" data-size="480x602" data-med-size="480x602"
-                               data-med="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k33.jpg"
-                               href="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k33.jpg">
-                                <img width="150" height="150" alt="1111111111"
-                                     class="attachment-gallery_lightbox size-gallery_lightbox"
-                                     src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k3.jpg">
-                                <figure>大峡谷美景如画，山峰清凉，空气清新</figure>
-                            </a><a title="1111111111" data-author="by.MR.Jack" data-size="903x582"
-                                   data-med-size="903x582"
-                                   data-med="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k44.jpg"
-                                   href="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k44.jpg">
-                            <img width="150" height="150" alt="1111111111"
-                                 class="attachment-gallery_lightbox size-gallery_lightbox"
-                                 src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k4.jpg">
-                            <figure>大峡谷美景如画，山峰清凉，空气清新</figure>
-                        </a>
-                            <a title="1111111111" data-author="by.MR.Jack" data-size="903x582" data-med-size="903x582"
-                               data-med="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k55.jpg"
-                               href="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k55.jpg">
-                                <img width="150" height="150" alt="1111111111"
-                                     class="attachment-gallery_lightbox size-gallery_lightbox"
-                                     src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k5.jpg">
-                                <figure>大峡谷美景如画，山峰清凉，空气清新</figure>
-                            </a>
-                            <a title="1111111111" data-author="by.MR.Jack" data-size="903x582" data-med-size="903x582"
-                               data-med="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k66.jpg"
-                               href="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k66.jpg">
-                                <img width="150" height="150" alt="1111111111"
-                                     class="attachment-gallery_lightbox size-gallery_lightbox"
-                                     src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k6.jpg">
-                                <figure>大峡谷美景如画，山峰清凉，空气清新</figure>
-                            </a>
-                            <a title="1111111111" data-author="by.MR.Jack" data-size="903x582" data-med-size="903x582"
-                               data-med="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k77.jpg"
-                               href="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k77.jpg">
-                                <img width="150" height="150" alt="1111111111"
-                                     class="attachment-gallery_lightbox size-gallery_lightbox"
-                                     src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k7.jpg">
-                                <figure>大峡谷美景如画，山峰清凉，空气清新</figure>
-                            </a>
-                            <a title="1111111111" data-author="by.MR.Jack" data-size="903x582" data-med-size="903x582"
-                               data-med="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k88.jpg"
-                               href="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k88.jpg">
-                                <img width="150" height="150" alt="1111111111"
-                                     class="attachment-gallery_lightbox size-gallery_lightbox"
-                                     src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k8.jpg">
-                                <figure>大峡谷美景如画，山峰清凉，空气清新</figure>
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                    <div class="moretag">
-
-                        <span class="main_tag"></span>
-                    </div>
-                </div>
-
-            </li>
-            <li class="mian_li">
-                <div class="ajax_content">
-                    <a class="main_title" target="_blank"
-                       href="https://www.themepark.com.cn/demo/wen_da_she_qu_yan_shi_wen_zhang.html">
-                        去过济州岛，才明白什么叫“天然鲜”</a>
-
-                    <div class="main_others">
-                        <a class="main_cat" href="https://www.themepark.com.cn/demo/category/bbs" class="main_cat">旅途见闻
-                            / food</a>
-
-                        <a class="main_actor" target="_blank" href="https://www.themepark.com.cn/demo/author/jasson">MR.Jack</a>
-                        写在2015年03月30日
-                    </div>
-                    <div class="main_fenge"></div>
-                    <div class="main_excerp"><p class="index_p_d">
-                        听到我要去济州岛，对方的反应大多是“济州岛有什么好玩的。”虽说不看韩剧也不哈韩流，更不买韩妆，可谁让人家好吃关键还免签证，齐备了一场说吃就吃的旅行两大关键元素。然而这么胸有成竹的样子都是装出来的。两年前去首尔的时候觉得韩国吃食简直乏善可陈，满大街捧着咖啡杯艳丽冻人的美少女，然而咖啡和甜品都不够美味，被日本甩出不知道多少条街。传统韩国菜又太不适合一个人吃，曾在首尔明洞要了一份参鸡汤，上来整只乌骨...</p>
-                    </div>
-                    <a class="readmore"
-                       rel="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/enter.html"><span>展开全部</span>read
-                        more</a>
-                    <div class="readloading"></div>
-                    <div class="main_photos">
-
-                        <img src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/main1.jpg"/>
-
-
-                    </div>
-
-                    <div class="moretag">
-
-                        <span class="main_tag"></span>
-                    </div>
-                </div>
-
-            </li>
-
-
-            <li class="mian_li">
-                <div class="ajax_content">
-                    <a class="main_title" target="_blank"
-                       href="https://www.themepark.com.cn/demo/wen_da_she_qu_yan_shi_wen_zhang.html"> 静读丨阿尔托的温软力量</a>
-
-                    <div class="main_others">
-                        <a class="main_cat" href="https://www.themepark.com.cn/demo/category/bbs" class="main_cat">旅途见闻
-                            / food</a>
-
-                        <a class="main_actor" target="_blank" href="https://www.themepark.com.cn/demo/author/jasson">MR.Jack</a>
-                        写在2015年03月30日
-                    </div>
-                    <div class="main_fenge"></div>
-                    <div class="main_excerp"><p class="index_p_d">
-                        在东南大学建筑学院副教授史永高的理解中，阿尔托的建筑是温软的，但并非甜腻。它们不断地否定自己来承纳时间，在这承纳中，自有一种因隐忍而来的力量。温软，终究是源于对生活的关顾，便也因而脆弱，远离永恒。那些温软的背后，是平常的生活，是始终相依的万物，是一个人对世界的爱。</p>
-                    </div>
-                    <a class="readmore"
-                       rel="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/enter.html"><span>展开全部</span>read
-                        more</a>
-                    <div class="readloading"></div>
-                    <div class="main_photos">
-
-
-                        <div id="gallerys" data-pswp-uid="1">
-                            <a title="1111111111" data-author="by.MR.Jack" data-size="832x554" data-med-size="832x554"
-                               data-med="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k1.jpg"
-                               href="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k1.jpg">
-
-                                <img width="150" height="150" alt="1111111111"
-                                     class="attachment-gallery_lightbox size-gallery_lightbox"
-                                     src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k11.jpg">
-                                <figure>大峡谷美景如画，山峰清凉，空气清新</figure>
-
-                            </a>
-
-                            <a title="1111111111" data-author="by.MR.Jack" data-size="832x554" data-med-size="832x554"
-                               data-med="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k2.jpg"
-                               href="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k2.jpg">
-                                <img width="150" height="150" alt="1111111111"
-                                     class="attachment-gallery_lightbox size-gallery_lightbox"
-                                     src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k22.jpg">
-                                <figure>大峡谷美景如画，山峰清凉，空气清新</figure>
-                            </a>
-                            <a title="1111111111" data-author="by.MR.Jack" data-size="480x602" data-med-size="480x602"
-                               data-med="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k33.jpg"
-                               href="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k33.jpg">
-                                <img width="150" height="150" alt="1111111111"
-                                     class="attachment-gallery_lightbox size-gallery_lightbox"
-                                     src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k3.jpg">
-                                <figure>大峡谷美景如画，山峰清凉，空气清新</figure>
-                            </a><a title="1111111111" data-author="by.MR.Jack" data-size="903x582"
-                                   data-med-size="903x582"
-                                   data-med="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k44.jpg"
-                                   href="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k44.jpg">
-                            <img width="150" height="150" alt="1111111111"
-                                 class="attachment-gallery_lightbox size-gallery_lightbox"
-                                 src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k4.jpg">
-                            <figure>大峡谷美景如画，山峰清凉，空气清新</figure>
-                        </a>
-                            <a title="1111111111" data-author="by.MR.Jack" data-size="903x582" data-med-size="903x582"
-                               data-med="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k55.jpg"
-                               href="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k55.jpg">
-                                <img width="150" height="150" alt="1111111111"
-                                     class="attachment-gallery_lightbox size-gallery_lightbox"
-                                     src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k5.jpg">
-                                <figure>大峡谷美景如画，山峰清凉，空气清新</figure>
-                            </a>
-                            <a title="1111111111" data-author="by.MR.Jack" data-size="903x582" data-med-size="903x582"
-                               data-med="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k66.jpg"
-                               href="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k66.jpg">
-                                <img width="150" height="150" alt="1111111111"
-                                     class="attachment-gallery_lightbox size-gallery_lightbox"
-                                     src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k6.jpg">
-                                <figure>大峡谷美景如画，山峰清凉，空气清新</figure>
-                            </a>
-                            <a title="1111111111" data-author="by.MR.Jack" data-size="903x582" data-med-size="903x582"
-                               data-med="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k77.jpg"
-                               href="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k77.jpg">
-                                <img width="150" height="150" alt="1111111111"
-                                     class="attachment-gallery_lightbox size-gallery_lightbox"
-                                     src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k7.jpg">
-                                <figure>大峡谷美景如画，山峰清凉，空气清新</figure>
-                            </a>
-                            <a title="1111111111" data-author="by.MR.Jack" data-size="903x582" data-med-size="903x582"
-                               data-med="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k88.jpg"
-                               href="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k88.jpg">
-                                <img width="150" height="150" alt="1111111111"
-                                     class="attachment-gallery_lightbox size-gallery_lightbox"
-                                     src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/k8.jpg">
-                                <figure>大峡谷美景如画，山峰清凉，空气清新</figure>
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                    <div class="moretag">
-
-                        <span class="main_tag"></span>
-                    </div>
-                </div>
-
-            </li>
+            {% endfor %}
 
 
         </ul>
-        <div id="pagination"><a href="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/loop.html"></a>点击加载更多
+        <div id="pagination"><a href="/"></a>点击加载更多
         </div>
     </div>
 
@@ -714,16 +168,14 @@
 
         <div class="widget">
 
-            <h2><a href=""> 关于我</a></h2>  <a target="_blank" href="#" class="about_pic">
-
-            <img alt="关于我" src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/me.jpg"></a>
+            <h2><a href=""> 关于我</a></h2>
+            <a target="_blank" href="#" class="about_pic"> <img alt="关于我" src="{% static 'images/me.jpg' %}"></a>
 
             <div class="code_s about_p"><strong>MR.Jack</strong><br/>
                 18世纪在世界史上是个特别迷人的世纪，它将启蒙运动紧紧拥在怀中。/<br/>
                 这是最好的世界 /<br/>
                 也是最坏的世界 /<br/>
                 旅途路上永远会遇到有趣的事情<br/>
-
             </div>
 
         </div>
@@ -731,11 +183,9 @@
 
         <div class="fixed_mok" style="width: 378px; left: 1163.9px; top: 20px;">
 
-
             <div class="widget">
                 <div class="code_s">
-                    <a href="http://www.themepark.com.cn/" target="_blank"> <img alt="关于我"
-                                                                                 src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/ad.jpg"></a>
+                    <a href="/" target="_blank"> <img alt="关于我" src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/demo/ad.jpg"></a>
                 </div>
             </div>
         </div>
@@ -745,88 +195,10 @@
 
 </div>
 <div class="footer">
-    <div class="footer_in">
-        <div class="menu">
-            <ul>
-                <li id="menu-item-36" class=""><a><span><b></b></a></li>
-                <li id="menu-item-2" class=""><a><span><b></b></a></li>
-                <li id="menu-item-77" class=""><a><span><b></b></a></li>
-                <li id="menu-item-281" class=""><a><span><b></b></a></li>
-                <li id="menu-item-38" class=""><a><span><b></b></a></li>
-                <li id="menu-item-186" class=""><a><span><b></b></a></li>
-                <li id="menu-item-63" class=""><a><span><b></b></a></li>
-                <li id="menu-item-74" class=""><a><span><b></b></a></li>
-                <li id="menu-item-249" class=""><a><span><b></b></a></li>
-            </ul>
-        </div>
-        <p class="f_bq "> 版权所有 &copy;foreverlonger </p>
-
-    </div>
-
-
+    <div class="footer_in"> <p class="f_bq "> 版权所有 &copy;foreverlonger </p> </div>
 </div>
 
 
 <a href="#" title="回到顶部" class="top_go_btn"></a>
-
-
-<div id="gallery" class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="pswp__bg"></div>
-
-    <div class="pswp__scroll-wrap">
-
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- <div class="pswp__loading-indicator"><div class="pswp__loading-indicator__line"></div></div> -->
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip">
-                    <!-- <a href="#" class="pswp__share--facebook"></a>
-                    <a href="#" class="pswp__share--twitter"></a>
-                    <a href="#" class="pswp__share--pinterest"></a>
-                    <a href="#" download class="pswp__share--download"></a> -->
-                </div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
-            <div class="pswp__caption">
-                <div class="pswp__caption__center">
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-
-</div>
-
 </body>
 </html>
