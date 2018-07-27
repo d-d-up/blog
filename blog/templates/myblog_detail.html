@@ -18,23 +18,10 @@
     <link rel="icon" type="image/x-icon" class="js-site-favicon" href="https://assets-cdn.github.com/favicon.ico">
     <meta name='robots' content='noindex,follow'/>
     <link rel='dns-prefetch' href='//s.w.org'/>
-    <link rel="alternate" type="application/rss+xml" title="WEB主题公园 &raquo; 问答社区演示文章评论Feed"
-          href="https://www.themepark.com.cn/demo/wen_da_she_qu_yan_shi_wen_zhang.html/feed"/>
-    <link rel='stylesheet' id='dashicons-css' href='https://www.themepark.com.cn/demo/wp-includes/css/dashicons.min.css'
-          type='text/css' media='all'/>
-    <link rel='stylesheet' id='stylesheet-css'
-          href='https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/style.css' type='text/css' media='all'/>
-    <link rel='stylesheet' id='default-css'
-          href='https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/css/default-skin.css' type='text/css'
-          media='all'/>
-    <script type='text/javascript'
-            src='https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/js/jquery-2.1.1.min.js'></script>
-    <link rel='https://api.w.org/' href='https://www.themepark.com.cn/demo/wp-json/'/>
-    <link rel='prev' title='演示004' href='https://www.themepark.com.cn/demo/yan_shi_004.html'/>
-    <link rel="alternate" type="application/json+oembed"
-          href="https://www.themepark.com.cn/demo/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.themepark.com.cn%2Fdemo%2Fwen_da_she_qu_yan_shi_wen_zhang.html"/>
-    <link rel="alternate" type="text/xml+oembed"
-          href="https://www.themepark.com.cn/demo/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.themepark.com.cn%2Fdemo%2Fwen_da_she_qu_yan_shi_wen_zhang.html&#038;format=xml"/>
+    <link rel='stylesheet' id='dashicons-css' href='{% static 'css/dashicons.min.css' %}' type='text/css' media='all'/>
+    <link rel='stylesheet' id='stylesheet-css' href='{% static 'style.css' %}' type='text/css' media='all'/>
+    <link rel='stylesheet' id='default-css' href='{% static 'css/default-skin.css' %}' type='text/css' media='all'/>
+    <script type='text/javascript' src='{% static 'js/jquery-2.1.1.min.js' %}'></script>
 
 </head>
 
@@ -44,7 +31,7 @@
 
     <div class="top_image"></div>
     <div class="header_logo">
-        <h1><img src="https://www.themepark.com.cn/demo/wp-content/themes/foldingtime/images/logo.jpg"/></h1>
+        <h1><img src="{% static 'images/logo.jpg' %}"/></h1>
     </div>
 
     <div class="nav">
