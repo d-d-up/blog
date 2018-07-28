@@ -13,13 +13,12 @@ class MyBlogListView(ListView):
     """博客内容列表"""
     model = BlogContent
     template_name = "myblog_list.html"
-    paginate_by = '30'
+    paginate_by = 1
     context_object_name = 'blog_contents'
 
 
 class BlogContentCreateView(CreateView):
     """博客内容创建"""
-
     template_name = "myblog_create.html"
     form_class = BlogContentCreateForm
     success_url = reverse_lazy("myblog:myblog_list")

@@ -151,10 +151,9 @@ b a,h2 a{ color:#333;}
 
 #searchform{ display:block;width:95%; padding:5px 2.5%; overflow:hidden; text-align:center;}
 #searchform #s{width:95%; padding:5px 2.5%; border:solid 1px #CCCCCC; background:#FFF;}
-#pagination{ width:100%; float:left; padding:10px 0; text-align:center; background:#F3F3F3;cursor:pointer;color:#999;font-size:12px;}
+#pagination{ width:100%; float:left; padding:10px 0; text-align:center; background:#F3F3F3;color:#999;font-size:12px;}
 .loading{ background: #F3F3F3 center top no-repeat url("images/preloader.gif")!important;padding:43px 0 10px 0 !important;}
 #paginations{ width:100%; float:left; padding:20px 0 20px 0 ; text-align:center;}
-#pagination a{ display: none;}
 
 .news_tuoch ul li{ display:block; float:left; width:100%;} 
 .news_tuoch ul li a{ padding:0; display: inline-block; background:none; width:100%; text-align:center; margin:0;}
