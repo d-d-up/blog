@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog添加文本页面</title>
+    <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" type="text/css" media="screen" />
+    <link rel="icon" type="image/x-icon" class="js-site-favicon" href="https://assets-cdn.github.com/favicon.ico">
+    <link rel='stylesheet' id='stylesheet-css' href='{% static 'style.css' %}' type='text/css' media='all'/>
+
+</head>
+<body>
+<div class="wrapper">
+  <header class="main-header">
+    <a href=" " class="logo"> </a>
+    <nav class="navbar navbar-static-top" role="navigation">
+    </nav>
+  </header>
+
+  <div class="content-wrapper">
+
+<div class="login-box">
+<form class="form-horizontal" id="createForm" action="" method="post">{% csrf_token %}
+  <div class="box-body">
+  {% for field in form %}
+    <div class="form-group{% if field.errors %} has-error{% endif %}">
+        <label class="col-sm-2 control-label">{{ field.label }}
+          {% if field.field.required %}
+            <span class="text-red">*</span>
+          {% endif %}
+        </label>
+        <div class="col-sm-8">
+            {{ field }}
+        </div>
+        <span class="help-block">
+          {% for error in field.errors %}
+              {{ error }}
+          {% endfor %}
+          {{ field.help_text }}
+        </span>
+    </div>
+    {% endfor %}
+    <div class="box-footer text-center">
+        <button id="createBtn" type="submit" class="btn btn-info">登录</button>
+    </div>
+  </div>
+</form>
+</div>
+    </div>
+  </div>
+
+</body>
+</html>

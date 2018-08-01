@@ -1,14 +1,14 @@
 {% load get_range %}
-<div class="col-sm-6" style="margin-top:5px">
+<div class="col-sm-6" style="margin-top:5px;">
   <div class="dataTables_info" id="editable_info" role="status" aria-live="polite">
-    <p>
+    <p style=" padding-left: 10px;">
       Showing {{ page_obj.start_index }} to {{ page_obj.end_index }} of {{ paginator.count }} entries
     </p>
   </div>
 </div>
 <div class="col-sm-6">
   <div class="dataTables_paginate paging_simple_numbers" id="editable_paginate">
-    <ul class="pagination" style="margin-top: 0; float: right">
+    <ul class="pagination" style="margin-top: 0; float: right; margin-right: 10px;">
       {% if page_obj.has_previous %}
         <li class="paginate_button previous">
           <a class="page" href="?page={{ page_obj.previous_page_number }}&{{ queries.urlencode }}">Previous</a>

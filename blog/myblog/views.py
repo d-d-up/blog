@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic.base import View
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import BlogSort, BlogContent
 from .forms import BlogContentCreateForm
@@ -17,7 +18,7 @@ class MyBlogListView(ListView):
     context_object_name = 'blog_contents'
 
 
-class BlogContentCreateView(CreateView):
+class BlogContentCreateView(LoginRequiredMixin, CreateView):
     """博客内容创建"""
     template_name = "myblog_create.html"
     form_class = BlogContentCreateForm
@@ -29,6 +30,5 @@ class BlogContentDetailView(DetailView):
     model = BlogContent
     template_name = "myblog_detail.html"
     context_object_name = "blog_content"
-
 
 
