@@ -15,7 +15,7 @@ class MyBlogListView(ListView):
     """博客内容列表"""
     model = BlogContent
     template_name = "myblog_list.html"
-    paginate_by = 1
+    paginate_by = 5 
     context_object_name = 'blog_contents'
 
 
