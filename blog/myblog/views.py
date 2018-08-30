@@ -22,7 +22,7 @@ class MyBlogListView(ListView):
     def get_context_data(self, **kwargs):
         """重写上下文函数，加入自己的内容."""
         context = super(MyBlogListView, self).get_context_data(**kwargs)
-        sort_list = BlogSort.objects.order_by('-create_time')
+        sort_list = BlogSort.objects.filter(blog_type=0)
         content_four = BlogContent.objects.order_by('-create_time')[0:4]
         context['sort_list'] = sort_list
         context['content_four'] = content_four
@@ -45,7 +45,7 @@ class BlogContentDetailView(DetailView):
     def get_context_data(self, **kwargs):
         """重写上下文函数，加入自己的内容."""
         context = super(BlogContentDetailView, self).get_context_data(**kwargs)
-        sort_list = BlogSort.objects.all()
+        sort_list = BlogSort.objects.filter(blog_type=0)
         sort_id = self.object.sort_id
         content_four = BlogContent.objects.order_by('-create_time')[0:4]
         sort_content_four = BlogContent.objects.filter(Q(sort_id=sort_id), ~Q(pk=self.object.pk)).order_by('-create_time')[0:4]
@@ -74,7 +74,7 @@ class BlogSortContentListView(ListView):
     def get_context_data(self, **kwargs):
         """重写上下文函数，加入自己的内容."""
         context = super(BlogSortContentListView, self).get_context_data(**kwargs)
-        sort_list = BlogSort.objects.all()
+        sort_list = BlogSort.objects.filter(blog_type=0)
         content_four = BlogContent.objects.order_by('-create_time')[0:4]
         context['sort_list'] = sort_list
         context['content_four'] = content_four

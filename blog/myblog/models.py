@@ -9,6 +9,7 @@ class BlogSort(models.Model):
     description = models.TextField("分类描述", blank=True)
     create_time = models.DateTimeField("创建时间", auto_now_add=True, null=True)  # 创建时间
     update_time = models.DateTimeField("更新时间", auto_now=True, null=True)  # 更新时间
+    blog_type = models.CharField('类型', max_length=2, default=0)  # 博客类型,0:技术篇,1：其他类型文章
 
     class Meta:
         """Custom attribute fields."""
