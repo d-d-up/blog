@@ -20,7 +20,8 @@ foreverlonger的BLOG
                         <a class="main_actor" target="_blank" href="#">forever</a> 写在{{ blog_content.create_time|date:"Y-m-d H:i:s" }}
                     </div>
                     <div class="main_fenge"></div>
-                    <div class="main_excerp"><p class="index_p_d">
+                    <div class="main_excerp">
+                    <p class="index_p_d">
                         {{ blog_content.content }}
                     </p>
                     </div>
@@ -39,7 +40,7 @@ foreverlonger的BLOG
 
             </li>
             {% empty %}
-            还没文章
+            敬请期待
             {% endfor %}
 
 

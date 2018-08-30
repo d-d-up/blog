@@ -12,7 +12,7 @@ class BlogSort(models.Model):
 
     class Meta:
         """Custom attribute fields."""
-        ordering = ['create_time']
+        ordering = ['-create_time']
         db_table = 'bl_blog_sort'
         verbose_name = '博客分类表'
         verbose_name_plural = verbose_name
@@ -34,7 +34,7 @@ class BlogContent(models.Model):
 
     class Meta:
         """Custom attribute fields."""
-        ordering = ['create_time']
+        ordering = ['-create_time']
         db_table = 'bl_blog_content'
         verbose_name = '博客文章表'
         verbose_name_plural = verbose_name

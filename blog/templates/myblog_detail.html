@@ -34,62 +34,26 @@ BLOG详情页
 
 
             <div id="relevat">
-                <div class="relevat_title">相关推荐</div>
+                <div class="relevat_title">相关推荐==></div>
+                {# todo:本分类的四篇文章 #}
                 <ul>
+                    {% for content in content_four %}
                     <li>
-                        <a target="_blank" href="http://localhost/wordpress/?p=376" class="news_pics"><img width="307"
+                        <a href="{% url 'myblog:myblog_detail' content.pk %}" class="news_pics"><img width="307"
                                                                                                            height="204"
                                                                                                            title="阳光僧林"
                                                                                                            alt="阳光森林"
                                                                                                            class="attachment-case size-case wp-post-image"
                                                                                                            src="{% static 'images/cpss1.jpg' %}"></a>
                         <div class="news_textss">
-                            <a title="" target="_blank" href="http://localhost/wordpress/?p=376">夏日午后的突发事件</a>
+                            <a title="{{ content.title }}" href="{% url 'myblog:myblog_detail' content.pk %}">{{ content.title }}</a>
 
-                            <p>像所有周日那样，苏先生在家陪着我，或者说，我陪着他。这件事情有些说不...</p></div>
+{#                            <p>{{ content.content }}</p>#}
+                        </div>
                     </li>
-
-
-                    <li>
-                        <a target="_blank" href="http://localhost/wordpress/?p=376" class="news_pics"><img width="307"
-                                                                                                           height="204"
-                                                                                                           title="阳光僧林"
-                                                                                                           alt="阳光森林"
-                                                                                                           class="attachment-case size-case wp-post-image"
-                                                                                                           src="{% static 'images/cpss4.jpg' %}"></a>
-                        <div class="news_textss">
-                            <a title="" target="_blank" href="http://localhost/wordpress/?p=376">夏日午后的突发事件</a>
-
-                            <p>像所有周日那样，苏先生在家陪着我，或者说，我陪着他。这件事情有些说不...</p></div>
-                    </li>
-
-
-                    <li>
-                        <a target="_blank" href="http://localhost/wordpress/?p=376" class="news_pics"><img width="307"
-                                                                                                           height="204"
-                                                                                                           title="阳光僧林"
-                                                                                                           alt="阳光森林"
-                                                                                                           class="attachment-case size-case wp-post-image"
-                                                                                                           src="{% static 'images/cpss4.jpg' %}"></a>
-                        <div class="news_textss">
-                            <a title="" target="_blank" href="http://localhost/wordpress/?p=376">夏日午后的突发事件</a>
-
-                            <p>像所有周日那样，苏先生在家陪着我，或者说，我陪着他。这件事情有些说不...</p></div>
-                    </li>
-
-
-                    <li>
-                        <a target="_blank" href="http://localhost/wordpress/?p=376" class="news_pics"><img width="307"
-                                                                                                           height="204"
-                                                                                                           title="阳光僧林"
-                                                                                                           alt="阳光森林"
-                                                                                                           class="attachment-case size-case wp-post-image"
-                                                                                                           src="{% static 'images/cpss2.jpg' %}"></a>
-                        <div class="news_textss">
-                            <a title="" target="_blank" href="http://localhost/wordpress/?p=376">夏日午后的突发事件</a>
-
-                            <p>像所有周日那样，苏先生在家陪着我，或者说，我陪着他。这件事情有些说不...</p></div>
-                    </li>
+                    {% empty %}
+                    敬请期待
+                    {% endfor %}
 
                 </ul>
             </div>

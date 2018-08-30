@@ -5,6 +5,7 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Q
 from .models import BlogSort, BlogContent
 from .forms import BlogContentCreateForm
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
@@ -21,8 +22,10 @@ class MyBlogListView(ListView):
     def get_context_data(self, **kwargs):
         """重写上下文函数，加入自己的内容."""
         context = super(MyBlogListView, self).get_context_data(**kwargs)
-        sort_list = BlogSort.objects.all()
-        context['sort_list'] = sort_list 
+        sort_list = BlogSort.objects.order_by('-create_time')
+        content_four = BlogContent.objects.order_by('-create_time')[0:4]
+        context['sort_list'] = sort_list
+        context['content_four'] = content_four
         return context
 
 
@@ -43,7 +46,10 @@ class BlogContentDetailView(DetailView):
         """重写上下文函数，加入自己的内容."""
         context = super(BlogContentDetailView, self).get_context_data(**kwargs)
         sort_list = BlogSort.objects.all()
-        context['sort_list'] = sort_list 
+        sort_id = self.object.sort_id
+        content_four = BlogContent.objects.filter(Q(sort_id=sort_id), ~Q(pk=self.object.pk)).order_by('-create_time')[0:4]
+        context['sort_list'] = sort_list
+        context['content_four'] = content_four
         return context
 
 

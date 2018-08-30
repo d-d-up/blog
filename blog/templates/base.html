@@ -85,60 +85,27 @@
 
 
             <h2>
-                <a href="#"> post</a>
+                <a href="#"> 最近文章 </a>
             </h2>
 
             <ul>
 
-
+                {% for content in content_four %}
                 <li>
                     <a target="_blank" href="#"
                        class="news_pics"><img width="307" height="204" title="阳光僧林" alt="阳光森林"
                                               class="attachment-case size-case wp-post-image"
                                               src="{% static 'images/cpss1.jpg' %}"></a>
                     <div class="news_textss">
-                        <a title=""
-                           href="#">夏日午后的突发事件</a>
-                        <em>2016/01/28</em>
-                        <p>像所有周日那样，苏先生在家陪着我，或者说，我陪着他。这件事情有些说不...</p></div>
+                        <a title="" href="{% url 'myblog:myblog_detail' content.pk %}">{{ content.title }}</a>
+                        <em>{{ content.create_time|date:"Y-m-d H:i:s" }}</em>
+{#                        <p>{{ content.content }}</p></div>#}
+                    <a class="readmore" href="{% url 'myblog:myblog_detail' content.pk %}"><span>展开全部</span>read more</a>
                 </li>
+                {% empty %}
+                    敬请期待
 
-
-                <li>
-                    <a target="_blank" href="#"
-                       class="news_pics"><img width="307" height="204" title="阳光僧林" alt="阳光森林"
-                                              class="attachment-case size-case wp-post-image"
-                                              src="{% static 'images/cpss4.jpg' %}"></a>
-                    <div class="news_textss">
-                        <a title="" target="_blank" href="#">夏日午后的突发事件</a>
-                        <em>2016/01/28</em>
-                        <p>像所有周日那样，苏先生在家陪着我，或者说，我陪着他。这件事情有些说不...</p></div>
-                </li>
-
-
-                <li>
-                    <a target="_blank" href="#"
-                       class="news_pics"><img width="307" height="204" title="阳光僧林" alt="阳光森林"
-                                              class="attachment-case size-case wp-post-image"
-                                              src="{% static 'images/cpss3.jpg' %}"></a>
-                    <div class="news_textss">
-                        <a title="" target="_blank" href="#">夏日午后的突发事件</a>
-                        <em>2016/01/28</em>
-                        <p>像所有周日那样，苏先生在家陪着我，或者说，我陪着他。这件事情有些说不...</p></div>
-                </li>
-
-
-                <li>
-                    <a target="_blank" href="#"
-                       class="news_pics"><img width="307" height="204" title="阳光僧林" alt="阳光森林"
-                                              class="attachment-case size-case wp-post-image"
-                                              src="{% static 'images/cpss2.jpg' %}"></a>
-                    <div class="news_textss">
-                        <a title="" target="_blank" href="#">夏日午后的突发事件</a>
-                        <em>2016/01/28</em>
-                        <p>像所有周日那样，苏先生在家陪着我，或者说，我陪着他。这件事情有些说不...</p></div>
-                </li>
-
+                {% endfor %}
 
             </ul>
 
