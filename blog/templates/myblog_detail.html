@@ -37,7 +37,7 @@ BLOG详情页
                 <div class="relevat_title">相关推荐==></div>
                 {# todo:本分类的四篇文章 #}
                 <ul>
-                    {% for content in content_four %}
+                    {% for content in sort_content_four %}
                     <li>
                         <a href="{% url 'myblog:myblog_detail' content.pk %}" class="news_pics"><img width="307"
                                                                                                            height="204"
