@@ -56,6 +56,11 @@
     <div class="widget widget_calendar" id="calendar-2"><h2>分类列表</h2>
         <div class="calendar_wrap" id="calendar_wrap">
             {#todo:分类列表#}
+            <ul>
+            {% for sort in sort_list %}
+            <li><a href="{% url 'myblog:sort_content' sort.id %}">{{ sort.name }}</a></li>
+            {% endfor %}
+            </ul>
         </div>
     </div>
 
