@@ -73,5 +73,8 @@ class BlogSortContentListView(ListView):
         """重写上下文函数，加入自己的内容."""
         context = super(BlogSortContentListView, self).get_context_data(**kwargs)
         sort_list = BlogSort.objects.all()
-        context['sort_list'] = sort_list 
+        context['sort_list'] = sort_list
+        sort_id = self.object.sort_id
+        content_four = BlogContent.objects.filter(Q(sort_id=sort_id), ~Q(pk=self.object.pk)).order_by('-create_time')[0:4]
+        context['content_four'] = content_four
         return context
