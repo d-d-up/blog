@@ -20,4 +20,12 @@ STATICFILES_DIRS = (
 
 INSTALLED_APPS += (
    'myblog',
+   'tinymce',
 )
+
+# 富文本编辑器配置
+TINYMCE_DEFAULT_CONFIG = {
+    'theme': 'advanced',
+    'width': 1000,
+    'height': 600,
+}

@@ -1,6 +1,7 @@
 # coding=utf-8
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from tinymce.models import HTMLField
 
 
 class BlogSort(models.Model):
@@ -30,6 +31,8 @@ class BlogContent(models.Model):
     sort = models.ForeignKey(BlogSort, related_name='BlogSort', null=True)  # 文章分类
     title = models.CharField("文章标题", max_length=100)
     content = models.TextField("文章内容", blank=True)
+    # content = HTMLField("文章内容", blank=True)
+    # image = models.ImageField(upload_to='blog', verbose_name='图片')
     create_time = models.DateTimeField("创建时间", auto_now_add=True, null=True)  # 创建时间
     update_time = models.DateTimeField("更新时间", auto_now=True, null=True)  # 更新时间
 
