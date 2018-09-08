@@ -22,6 +22,6 @@ from django.conf import settings
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    # url(r'^tinymce/', include('tinymce.urls')), # 富文本编辑器
+    # url(r'^tinymce/', include('tinymce.urls')), 
     url(r'^', include('myblog.urls', namespace="myblog")),
 ]
