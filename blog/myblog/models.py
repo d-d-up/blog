@@ -1,7 +1,7 @@
 # coding=utf-8
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from tinymce.models import HTMLField
+# from tinymce.models import HTMLField
 
 
 class BlogSort(models.Model):

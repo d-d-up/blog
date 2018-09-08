@@ -20,7 +20,7 @@ STATICFILES_DIRS = (
 
 INSTALLED_APPS += (
    'myblog',
-   'tinymce',
+   # 'tinymce',
 )
 
 # 富文本编辑器配置
