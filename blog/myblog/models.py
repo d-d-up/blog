@@ -28,7 +28,7 @@ class BlogSort(models.Model):
 
 class BlogContent(models.Model):
     """博客文章表"""
-    sort = models.ForeignKey(BlogSort, related_name='BlogSort', null=True)  # 文章分类
+    sort = models.ForeignKey(BlogSort, related_name='BlogSort', on_delete=models.CASCADE, null=True)  # 文章分类
     title = models.CharField("文章标题", max_length=100)
     content = models.TextField("文章内容", blank=True)
     # content = HTMLField("文章内容", blank=True)
