@@ -24,8 +24,10 @@ class MyBlogListView(ListView):
         context = super(MyBlogListView, self).get_context_data(**kwargs)
         sort_list = BlogSort.objects.filter(blog_type=0)
         content_four = BlogContent.objects.order_by('-create_time')[0:4]
+        content_all=BlogContent.objects.filter(sort__blog_type=0).order_by('-create_time')
         context['sort_list'] = sort_list
         context['content_four'] = content_four
+        context['content_all'] = content_all
         return context
 
 
