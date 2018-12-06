@@ -11,7 +11,7 @@ foreverlonger的BLOG
 
         <ul class="main_loop_ul">
 
-            {% for blog_content in content_all %}
+            {% for blog_content in blog_contents %}
             <li class="mian_li">
                 <div class="ajax_content">
                     <a class="main_title" href="{% url 'myblog:myblog_detail' blog_content.pk %}"> {{ blog_content.title }}</a>
