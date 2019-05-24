@@ -16,15 +16,17 @@ class MyBlogListView(ListView):
     """博客内容列表"""
     model = BlogContent
     template_name = "myblog_list.html"
-    paginate_by = 5 
+    paginate_by = 5
     context_object_name = 'blog_contents'
 
     def get_context_data(self, **kwargs):
         """重写上下文函数，加入自己的内容."""
         context = super(MyBlogListView, self).get_context_data(**kwargs)
         sort_list = BlogSort.objects.filter(blog_type=0)
-        content_four = BlogContent.objects.order_by('-create_time')[0:4]
-        content_all=BlogContent.objects.filter(sort__blog_type=0).order_by('-create_time')
+        content_four = BlogContent.objects.filter(sort__blog_type=0).order_by('-create_time')[0:4]
+        content_all = BlogContent.objects.filter(sort__blog_type=0).order_by('-create_time')
+        # print(content_all)
+        # print(BlogContent.objects.filter())
         context['sort_list'] = sort_list
         context['content_four'] = content_four
         context['content_all'] = content_all
@@ -70,7 +72,7 @@ class BlogSortContentListView(ListView):
 
         blog_sort_objects = BlogContent.objects.all()
         if sort_id:
-            blog_sort_objects = blog_sort_objects.filter(sort_id=sort_id)
+            blog_sort_objects = blog_sort_objects.filter(sort__id=sort_id)
         return blog_sort_objects.all()
 
     def get_context_data(self, **kwargs):
@@ -80,4 +82,88 @@ class BlogSortContentListView(ListView):
         content_four = BlogContent.objects.order_by('-create_time')[0:4]
         context['sort_list'] = sort_list
         context['content_four'] = content_four
+        return context
+
+
+class MyNovelListView(ListView):
+    """小说内容列表"""
+    model = BlogContent
+    template_name = "mynovel_list.html"
+    paginate_by = 5
+    context_object_name = 'blog_contents'
+
+    def get_context_data(self, **kwargs):
+        """重写上下文函数，加入自己的内容."""
+        context = super(MyNovelListView, self).get_context_data(**kwargs)
+        sort_list = BlogSort.objects.filter(blog_type=1)
+        content_four = BlogContent.objects.filter(sort__blog_type=1).order_by('-create_time')[0:4]
+        content_all = BlogContent.objects.filter(sort__blog_type=1).order_by('-create_time')
+        # print(content_all)
+        # print(BlogContent.objects.filter())
+        context['sort_list'] = sort_list
+        context['content_four'] = content_four
+        context['content_all'] = content_all
+        return context
+
+
+class MySoupListView(ListView):
+    """鸡汤内容列表"""
+    model = BlogContent
+    template_name = "mysoup_list.html"
+    paginate_by = 5
+    context_object_name = 'blog_contents'
+
+    def get_context_data(self, **kwargs):
+        """重写上下文函数，加入自己的内容."""
+        context = super(MySoupListView, self).get_context_data(**kwargs)
+        sort_list = BlogSort.objects.filter(blog_type=2)
+        content_four = BlogContent.objects.filter(sort__blog_type=2).order_by('-create_time')[0:4]
+        content_all = BlogContent.objects.filter(sort__blog_type=2).order_by('-create_time')
+        # print(content_all)
+        # print(BlogContent.objects.filter())
+        context['sort_list'] = sort_list
+        context['content_four'] = content_four
+        context['content_all'] = content_all
+        return context
+
+
+class MyRoadListView(ListView):
+    """走过的路内容列表"""
+    model = BlogContent
+    template_name = "myroad_list.html"
+    paginate_by = 5
+    context_object_name = 'blog_contents'
+
+    def get_context_data(self, **kwargs):
+        """重写上下文函数，加入自己的内容."""
+        context = super(MyRoadListView, self).get_context_data(**kwargs)
+        sort_list = BlogSort.objects.filter(blog_type=3)
+        content_four = BlogContent.objects.filter(sort__blog_type=3).order_by('-create_time')[0:4]
+        content_all = BlogContent.objects.filter(sort__blog_type=3).order_by('-create_time')
+        # print(content_all)
+        # print(BlogContent.objects.filter())
+        context['sort_list'] = sort_list
+        context['content_four'] = content_four
+        context['content_all'] = content_all
+        return context
+
+
+class MyHeartListView(ListView):
+    """少女心内容列表"""
+    model = BlogContent
+    template_name = "myheart_list.html"
+    paginate_by = 5
+    context_object_name = 'blog_contents'
+
+    def get_context_data(self, **kwargs):
+        """重写上下文函数，加入自己的内容."""
+        context = super(MyHeartListView, self).get_context_data(**kwargs)
+        sort_list = BlogSort.objects.filter(blog_type=4)
+        content_four = BlogContent.objects.filter(sort__blog_type=4).order_by('-create_time')[0:4]
+        content_all = BlogContent.objects.filter(sort__blog_type=4).order_by('-create_time')
+        # print(content_all)
+        # print(BlogContent.objects.filter())
+        context['sort_list'] = sort_list
+        context['content_four'] = content_four
+        context['content_all'] = content_all
         return context

@@ -12,13 +12,12 @@ foreverlonger的BLOG
         <ul class="main_loop_ul">
 
             {% for blog_content in blog_contents %}
-{#            {% for blog_content in content_all %}#}
             <li class="mian_li">
                 <div class="ajax_content">
                     <a class="main_title" href="{% url 'myblog:myblog_detail' blog_content.pk %}"> {{ blog_content.title }}</a>
                     <div class="main_others">
                         <a class="main_cat" href="#" class="main_cat">{{ blog_content.sort.name }}</a>
-                        <a class="main_actor" href="#">forever</a> 写在{{ blog_content.create_time|date:"Y-m-d H:i:s" }}
+                        <a class="main_actor" target="_blank" href="#">forever</a> 写在{{ blog_content.create_time|date:"Y-m-d H:i:s" }}
                     </div>
                     <div class="main_fenge"></div>
                     <div class="main_excerp">
@@ -52,16 +51,8 @@ foreverlonger的BLOG
 
 {% block footer_script %}
     <script>
-    {#$(".header_pic_menu").click(function (){#}
-    {#    var blog_title = $(this).text();#}
-    {#    console.log(blog_title);#}
-    {#    $("#zhezhaoceng").removeClass("current-menu-item");#}
-    {#    $(this).addClass("current-menu-item");#}
-    {##}
-    {#});#}
-
     $(function () {
-        $("#menu-item-37").addClass("current-menu-item")
+        $("#menu-item-38").addClass("current-menu-item")
     })
     </script>
 
