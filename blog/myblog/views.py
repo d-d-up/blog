@@ -19,6 +19,11 @@ class MyBlogListView(ListView):
     paginate_by = 5
     context_object_name = 'blog_contents'
 
+    def get_queryset(self):
+        """重写."""
+        blog_contents = BlogContent.objects.filter(sort__blog_type=0).order_by('-create_time')
+        return blog_contents
+
     def get_context_data(self, **kwargs):
         """重写上下文函数，加入自己的内容."""
         context = super(MyBlogListView, self).get_context_data(**kwargs)
@@ -92,6 +97,11 @@ class MyNovelListView(ListView):
     paginate_by = 5
     context_object_name = 'blog_contents'
 
+    def get_queryset(self):
+        """重写."""
+        blog_contents = BlogContent.objects.filter(sort__blog_type=1).order_by('-create_time')
+        return blog_contents
+
     def get_context_data(self, **kwargs):
         """重写上下文函数，加入自己的内容."""
         context = super(MyNovelListView, self).get_context_data(**kwargs)
@@ -112,6 +122,11 @@ class MySoupListView(ListView):
     template_name = "mysoup_list.html"
     paginate_by = 5
     context_object_name = 'blog_contents'
+
+    def get_queryset(self):
+        """重写."""
+        blog_contents = BlogContent.objects.filter(sort__blog_type=2).order_by('-create_time')
+        return blog_contents
 
     def get_context_data(self, **kwargs):
         """重写上下文函数，加入自己的内容."""
@@ -134,6 +149,11 @@ class MyRoadListView(ListView):
     paginate_by = 5
     context_object_name = 'blog_contents'
 
+    def get_queryset(self):
+        """重写."""
+        blog_contents = BlogContent.objects.filter(sort__blog_type=3).order_by('-create_time')
+        return blog_contents
+
     def get_context_data(self, **kwargs):
         """重写上下文函数，加入自己的内容."""
         context = super(MyRoadListView, self).get_context_data(**kwargs)
@@ -154,6 +174,11 @@ class MyHeartListView(ListView):
     template_name = "myheart_list.html"
     paginate_by = 5
     context_object_name = 'blog_contents'
+
+    def get_queryset(self):
+        """重写."""
+        blog_contents = BlogContent.objects.filter(sort__blog_type=4).order_by('-create_time')
+        return blog_contents
 
     def get_context_data(self, **kwargs):
         """重写上下文函数，加入自己的内容."""
