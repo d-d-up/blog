@@ -33,6 +33,7 @@ class BlogContent(models.Model):
     content = models.TextField("文章内容", blank=True)
     # content = HTMLField("文章内容", blank=True)
     # image = models.ImageField(upload_to='blog', verbose_name='图片')
+    views = models.IntegerField("浏览人数", default=1)
     create_time = models.DateTimeField("创建时间", auto_now_add=True, null=True)  # 创建时间
     update_time = models.DateTimeField("更新时间", auto_now=True, null=True)  # 更新时间
 

@@ -51,6 +51,15 @@ class BlogContentDetailView(DetailView):
     template_name = "myblog_detail.html"
     context_object_name = "blog_content"
 
+    def get_object(self):
+        """点击进来增加浏览次数"""
+        object = super(BlogContentDetailView, self).get_object()
+        # 修改属性值
+        object.views = object.views + 1
+        object.save()
+        # Return the object
+        return object
+
     def get_context_data(self, **kwargs):
         """重写上下文函数，加入自己的内容."""
         context = super(BlogContentDetailView, self).get_context_data(**kwargs)
