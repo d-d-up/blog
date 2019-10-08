@@ -107,7 +107,7 @@ class MyNovelListView(ListView):
     context_object_name = 'blog_contents'
 
     def get_queryset(self):
-        """重写."""
+        """重写.这个函数重写是为了显示分页上的条数"""
         blog_contents = BlogContent.objects.filter(sort__blog_type=1).order_by('-create_time')
         return blog_contents
 
